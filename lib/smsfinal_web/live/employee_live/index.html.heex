@@ -3,7 +3,7 @@
   </.header>
   
   <.table id="employees" rows={@streams.employees}}>
-    <:col :let={{_id, employee}} label="Employee"><%= employee.employee_id %></:col>
+    <:col :let={{_id, employee}} label="Employee ID"><%= employee.employee_id %></:col>
     <:col :let={{_id, employee}} label="Last name"><%= employee.last_name %></:col>
     <:col :let={{_id, employee}} label="First name"><%= employee.first_name %></:col>
     <:col :let={{_id, employee}} label="Date hired"><%= employee.date_hired %></:col>
