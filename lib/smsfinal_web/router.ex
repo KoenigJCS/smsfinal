@@ -17,6 +17,21 @@ defmodule SmsfinalWeb.Router do
   scope "/", SmsfinalWeb do
     pipe_through :browser
     live "/employees", EmployeeLive.Index, :index
+
+    live "/stores", StoreLive.Index, :index
+    live "/stores/new", StoreLive.Index, :new
+    live "/stores/:id/edit", StoreLive.Index, :edit
+
+    live "/stores/:id", StoreLive.Show, :show
+    live "/stores/:id/show/edit", StoreLive.Show, :edit
+
+    live "/products", ProductLive.Index, :index
+    live "/products/new", ProductLive.Index, :new
+    live "/products/:id/edit", ProductLive.Index, :edit
+
+    live "/products/:id", ProductLive.Show, :show
+    live "/products/:id/show/edit", ProductLive.Show, :edit
+
     get "/", PageController, :home
   end
 
