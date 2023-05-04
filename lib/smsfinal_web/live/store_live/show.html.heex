@@ -15,6 +15,23 @@
 
 <.back navigate={~p"/stores"}>Back to stores</.back>
 
+<h1> All Products from this store</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for product when product.store_id == @store.store_id <- @products do %>
+      <tr>
+        <th class="light"><%= product.name %></th>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
 <.modal :if={@live_action == :edit} id="store-modal" show on_cancel={JS.patch(~p"/stores/#{@store}")}>
   <.live_component
     module={SmsfinalWeb.StoreLive.FormComponent}
@@ -22,6 +39,7 @@
     title={@page_title}
     action={@live_action}
     store={@store}
+    products={@products}
     patch={~p"/stores/#{@store}"}
   />
 </.modal>

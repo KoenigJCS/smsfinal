@@ -89,6 +89,7 @@ defmodule SmsfinalWeb.ProductLive.FormComponent do
 
   defp assign_form(socket, %Ecto.Changeset{} = changeset) do
     assign(socket, :form, to_form(changeset))
+    |> assign(:stores, Company.list_stores())
   end
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})

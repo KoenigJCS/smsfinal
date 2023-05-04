@@ -13,7 +13,8 @@ defmodule SmsfinalWeb.StoreLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:store, Company.get_store!(id))}
+     |> assign(:store, Company.get_store!(id))
+     |> assign(:products, Company.list_products())}
   end
 
   defp page_title(:show), do: "Show Store"
